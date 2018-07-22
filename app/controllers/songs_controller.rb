@@ -28,8 +28,8 @@ post '/songs' do
   end
 
   get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/edit'
+      @song = Song.find_by_slug(params[:slug])
+      erb :'songs/edit'
   end
 
   patch '/songs/:slug' do
