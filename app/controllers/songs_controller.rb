@@ -24,7 +24,7 @@ post '/songs' do
   @song.save
 
 
-  redirect to "/songs/#{@song.slug}"
+  redirect to "/songs/:slug"
   end
 
   get '/songs/:slug/edit' do
