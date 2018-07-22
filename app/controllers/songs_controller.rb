@@ -18,11 +18,10 @@ get '/songs/:slug' do
 end
 
 post '/songs' do
-  @song = Song.create(name: params[:name])
-  @song.artist = Artist.find_or_create_by(:name => params[:name])
-  @song.genre_ids = params[:genres]
-  @song.save
-
+    @song = Song.create(:name => params["Name"])
+    @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
+    @song.genre_ids = params[:genres]
+    @song.save
 
   redirect to "/songs/:slug"
   end
@@ -38,7 +37,7 @@ post '/songs' do
     @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
     @song.genre_ids = params[:genres]
     @song.save
-    
+
    redirect("/songs/#{@song.slug}")
   end
 end
